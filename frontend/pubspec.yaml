@@ -24,19 +24,15 @@ dependencies:
   google_fonts: ^6.1.0
   lottie: ^3.0.0
   shimmer: ^3.0.0
-  flutter_animate: ^4.3.0
 
   # Auth
   google_sign_in: ^6.2.1
-  sign_in_with_apple: ^5.0.0
 
   # AI
-  google_generative_ai: ^0.2.2
   http: ^1.1.2
 
   # Voice
   speech_to_text: ^6.6.1
-  vosk_flutter: ^0.3.1
 
   # OCR
   google_mlkit_text_recognition: ^0.12.0
@@ -44,12 +40,9 @@ dependencies:
 
   # Media & Storage
   image_picker: ^1.0.7
-  file_picker: ^6.1.1
-  cloudinary_public: ^0.21.0
 
   # Local Storage
   shared_preferences: ^2.2.2
-  sqflite: ^2.3.0
   path_provider: ^2.1.1
 
   # Notifications
@@ -58,7 +51,7 @@ dependencies:
   # Utils
   intl: ^0.19.0
   url_launcher: ^6.2.2
-  connectivity_plus: ^5.0.2
+  connectivity_plus: ^6.0.0
   permission_handler: ^11.1.0
   uuid: ^4.2.1
   cached_network_image: ^3.3.0
