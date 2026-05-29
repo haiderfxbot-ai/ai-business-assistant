@@ -14,7 +14,11 @@ import 'providers/settings_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: FirebaseConfig.options);
+  try {
+    await Firebase.initializeApp(options: FirebaseConfig.options);
+  } catch (e) {
+    debugPrint('Firebase init error: $e');
+  }
   runApp(const AIBusinessApp());
 }
 
@@ -23,6 +27,11 @@ class AIBusinessApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FlutterError.onError = (details) {
+      FlutterError.presentError(details);
+      debugPrint('FlutterError: ${details.exception}');
+    };
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
