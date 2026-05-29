@@ -41,16 +41,20 @@ class ChatListScreen extends StatelessWidget {
             itemCount: chatProvider.chats.length,
             itemBuilder: (_, i) {
               final chat = chatProvider.chats[i];
+              final name = chat['name'] ?? 'Unknown';
+              final lastMsg = chat['lastMessage'] ?? '';
+              final time = chat['time'] ?? '';
+              final chatId = chat['id'] ?? '';
               return ListTile(
                 leading: CircleAvatar(
                   backgroundColor: AppTheme.secondaryColor,
-                  child: Text(chat['name'][0].toUpperCase(), style: const TextStyle(color: Colors.white)),
+                  child: Text(name.isNotEmpty ? name[0].toUpperCase() : '?', style: const TextStyle(color: Colors.white)),
                 ),
-                title: Text(chat['name'] ?? 'Unknown'),
-                subtitle: Text(chat['lastMessage'] ?? '', maxLines: 1, overflow: TextOverflow.ellipsis),
-                trailing: Text(chat['time'] ?? '', style: TextStyle(color: Colors.grey[500], fontSize: 12)),
+                title: Text(name),
+                subtitle: Text(lastMsg, maxLines: 1, overflow: TextOverflow.ellipsis),
+                trailing: Text(time, style: TextStyle(color: Colors.grey[500], fontSize: 12)),
                 onTap: () => Navigator.push(context, MaterialPageRoute(
-                  builder: (_) => ChatScreen(chatId: chat['id'], chatName: chat['name']),
+                  builder: (_) => ChatScreen(chatId: chatId, chatName: name),
                 )),
               );
             },

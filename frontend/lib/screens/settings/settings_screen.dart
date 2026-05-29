@@ -52,7 +52,7 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 const Divider(height: 1),
                 SwitchListTile(
-                  secondary: const Icon(Icons.auto_reply),
+                  secondary: const Icon(Icons.reply),
                   title: const Text('Auto Reply'),
                   subtitle: const Text('Automatically reply to messages'),
                   value: settingsProvider.autoReplyEnabled,

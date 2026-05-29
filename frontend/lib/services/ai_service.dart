@@ -33,13 +33,10 @@ class AIService {
         'model': AppConfig.groqModel,
         'messages': [
           {'role': 'system', 'content': _getSystemPrompt(settings)},
-          if (chatHistory != null) ...[
+          if (chatHistory != null)
             for (final msg in chatHistory.split('\n'))
-              if (msg.isNotEmpty) ...{
-                'role': 'user',
-                'content': msg,
-              }
-          ],
+              if (msg.isNotEmpty)
+                {'role': 'user', 'content': msg},
           {'role': 'user', 'content': message},
         ],
         'temperature': 0.7,
